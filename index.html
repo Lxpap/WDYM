@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="./Assets/style.css" />
 </head>
 <body class="bg-dark text-light">
-
-  <div> <p> Short project description</p>
+<!-- <div class="d-flex justify-content-center"> -->
+  <div><p> Short project description</p></div>
 
   <div class="search-container">
       <input type="text" id="searchInput" class="form-control" placeholder="What's the word or phrase you're looking for?">
@@ -21,14 +21,28 @@
     <img id="gif" src="" alt="A random GIF based on the phrase What Do You Mean" class="img-fluid">
   </div>
 
-  <div id="UrbanDictionaryResults" class="results-container"></div>
-  <div id="DictionaryResults" class="results-container"></div>
-  <div id="googleResults" class="results-container"></div>
+  <!-- <div id="urbanDictionaryResults" class="results-container"></div>
+  <div id="dictionaryResults" class="results-container"></div>
+  <div id="googleResults" class="results-container"></div> -->
 
-<script
-  src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-  integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
-  crossorigin="anonymous"></script>
+  <!-- <div id="loading">
+    <img src="spinner.gif" /> 
+  </div>
+  
+  <div id="error"></div> -->
+  
+  <div class="results">
+  
+    <div id="urbanDictionaryResults"></div>
+  
+    <div id="dictionaryResults"></div>
+  
+    <div id="googleResults"></div>
+  
+  </div>
+
+<!-- </div> -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="./Assets/script.js"></script>
 </body>
 </html>
