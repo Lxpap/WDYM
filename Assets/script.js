@@ -59,6 +59,7 @@ function search() {
         displayResultsUrban('urbanDictionaryResults', 'Urban Dictionary', urbanDictionaryResults.list);
         
     }).fail(function (error) {
+        displayResultsUrban('urbanDictionaryResults', 'Urban Dictionary', "Did you just type something random? That's not even slang. Sorry, no results to display here!");
         console.error('Error fetching search UD results:', error);
     });
 
@@ -76,7 +77,7 @@ function search() {
         displayResultsDictionary('dictionaryResults', 'Dictionary', "Sorry, no results were found in the dictionary :(");
         console.error('Error fetching Dictionary search results:', error);
     });
-}
+} // remove when the below is activated
 
 //     $.when(
         
@@ -87,6 +88,7 @@ function search() {
 //         $('#googleResults').show();
 //         displayResultsGoogle('googleResults', 'Google', googleResults[0].items);
 //     }).fail(function (error) {
+//      displayResultsGoogle('googleResults', 'Google', "Not even Google could find a result. There's no hope for you");
 //         console.error('Error fetching Google search results:', error);
 //     });
 // }
