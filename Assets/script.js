@@ -33,31 +33,16 @@ function search() {
         return;
     }
 
-//     $.when(
-//         fetchUrbanDictionaryResults(searchTerm),
-//         // fetchDictionaryResults(searchTerm),
-//         // fetchGoogleResults(searchTerm)
-//     ).done(function (urbanDictionaryResults, dictionaryResults, googleResults) {
-
-//         $('#randomGif').hide();
-//         $('#urbanDictionaryResults, #dictionaryResults, #googleResults').show();
-//         displayResultsUrban('urbanDictionaryResults', 'Urban Dictionary', urbanDictionaryResults.list);
-//         // displayResultsDictionary('dictionaryResults', 'Dictionary', dictionaryResults[0]);
-//         // displayResultsGoogle('googleResults', 'Google', googleResults[0].items);
-//     }).fail(function (error) {
-//         console.error('Error fetching search results:', error);
-//     });
-// }
     $.when(
         fetchUrbanDictionaryResults(searchTerm),
-        
+
     ).done(function (urbanDictionaryResults) {
 
         $('#randomGif').hide();
         $('#urbanDictionaryResults').show();
 
         displayResultsUrban('urbanDictionaryResults', 'Urban Dictionary', urbanDictionaryResults.list);
-        
+
     }).fail(function (error) {
         displayResultsUrban('urbanDictionaryResults', 'Urban Dictionary', "Did you just type something random? That's not even slang. Sorry, no results to display here!");
         console.error('Error fetching search UD results:', error);
@@ -65,37 +50,38 @@ function search() {
 
 
     $.when(
-            fetchDictionaryResults(searchTerm)
-            ).done(function (dictionaryResults) {
+        fetchDictionaryResults(searchTerm)
+    ).done(function (dictionaryResults) {
 
         $('#randomGif').hide();
         $('#dictionaryResults').show();
-                console.log(dictionaryResults);
+        console.log(dictionaryResults);
         displayResultsDictionary('dictionaryResults', 'Dictionary', dictionaryResults);
-        
+
     }).fail(function (error) {
         displayResultsDictionary('dictionaryResults', 'Dictionary', "Sorry, no results were found in the dictionary :(");
         console.error('Error fetching Dictionary search results:', error);
     });
-} // remove when the below is activated
 
-//     $.when(
+    // $.when(
         
-//         fetchGoogleResults(searchTerm)
-//     ).done(function (googleResults) {
+    //     fetchGoogleResults(searchTerm)
+    // ).done(function (googleResults) {
 
-//         $('#randomGif').hide();
-//         $('#googleResults').show();
-//         displayResultsGoogle('googleResults', 'Google', googleResults[0].items);
-//     }).fail(function (error) {
-//      displayResultsGoogle('googleResults', 'Google', "Not even Google could find a result. There's no hope for you");
-//         console.error('Error fetching Google search results:', error);
-//     });
-// }
+    //     $('#randomGif').hide();
+    //     $('#googleResults').show();
+    //     displayResultsGoogle('googleResults', 'Google', googleResults.items);
+
+
+    // }).fail(function (error) {
+    //  displayResultsGoogle('googleResults', 'Google', "Not even Google could find a result. There's no hope for you");
+    //     console.error('Error fetching Google search results:', error);
+    // });
+}
 
 
 function displayResultsUrban(containerId, title, results) {
-    
+
     var resultBox = $('<div>').addClass('result-box');
     resultBox.append(`<h3>${title} Results</h3>`);
 
@@ -106,7 +92,7 @@ function displayResultsUrban(containerId, title, results) {
             var permalink = item.permalink || '#';
 
             return `
-                <div>
+                <div class="urban-entry">
                     <h6>Definition: ${definition}</h6>
                     <p><strong>Example Use:</strong> ${example}</p>
                     <a href="${permalink}" target="_blank">Read more</a>
@@ -125,38 +111,15 @@ function displayResultsUrban(containerId, title, results) {
 
 }
 
-// function displayResultsDictionary(containerId, title, results) {
-//     var resultBox = $('<div>').addClass('result-box');
-//     resultBox.append(`<h3>${title} Results</h3>`);
-
-//     if (Array.isArray(results)) {
-//         var resultItems = results.map(item => {
-
-//             var content = item.definitions?.[0]?.definition || item.meanings?.[0]?.definitions?.[0]?.definition || item.word || item; 
-//             return `<li>${content}</li>`;
-//         });
-
-//         resultBox.append($('<ul>').html(resultItems.join('')));
-//     } else {
-
-//         resultBox.append(`<p>${results}</p>`);
-//     }
-
-
-//     $(`#${containerId}`).empty().append(resultBox);
-//     console.log(results);
-// }
-
 function displayResultsDictionary(containerId, title, results) {
     var resultBox = $('<div>').addClass('result-box');
     resultBox.append(`<h3>${title} Results</h3>`);
 
     if (Array.isArray(results)) {
         var resultItems = results.map(result => {
-            // console.log("test");
-            var content = result.definitions?.[0]?.definition || result.meanings?.[0]?.definitions?.[0]?.definition || result.word || result; 
+            var content = result.definitions?.[0]?.definition || result.meanings?.[0]?.definitions?.[0]?.definition || result.word || result;
             console.log(content);
-            return `<li>${content}</li>`;
+            return `<li class="dictionary-entry">${content}</li>`;
         });
 
         resultBox.append($('<ul>').html(resultItems.join('')));
@@ -170,11 +133,8 @@ function displayResultsDictionary(containerId, title, results) {
 
     $(`#${containerId}`).empty().append(resultBox);
     console.log(results);
-    
+
 }
-
-
-
 
 function displayResultsGoogle(containerId, title, results) {
     var resultBox = $('<div>').addClass('result-box');
@@ -184,10 +144,10 @@ function displayResultsGoogle(containerId, title, results) {
         var resultItems = results.map(item => {
             var title = item.title || 'No title available';
             var snippet = item.snippet || 'No snippet available';
-            var link = item.link || '#'; 
-            
+            var link = item.link || '#';
+
             return `
-                <li>
+                <li class="google-entry">
                     <h6>${title}</h6>
                     <p>${snippet}</p>
                     <a href="${link}" target="_blank">${link}</a>
@@ -224,7 +184,7 @@ function fetchDictionaryResults(searchTerm) {
 }
 
 function fetchGoogleResults(searchTerm) {
-    var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&key=[GOOGLEAPIKEY]&cx=[ENGINEID]`;
+    var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&key=AIzaSyB0xT2iK7esmO8eJEuTBYiWXYw1CiInl8s&cx=8303b2277c99f409a`;
     return $.ajax({
         url: apiUrl,
         method: 'GET',
@@ -232,3 +192,15 @@ function fetchGoogleResults(searchTerm) {
     });
 }
 
+
+// Activate search function on Enter
+
+var searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keydown', (event) => {
+
+  if (event.key === 'Enter') {
+    search();
+
+  }
+
+});

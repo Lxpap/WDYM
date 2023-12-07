@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What Do You Mean?!</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Do You Mean?!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="./Assets/style.css" />
 </head>
+
 <body class="bg-dark text-light">
-<!-- <div class="d-flex justify-content-center"> -->
-  <div><p> Short project description</p></div>
-
-  <div class="search-container">
-      <input type="text" id="searchInput" class="form-control" placeholder="What's the word or phrase you're looking for?">
-      <button onclick="search()" class="btn btn-primary">Search</button>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <img src="./Assets/Images/logo.png" class=".img-fluid. max-width: 50%" id="logo">
+        <!-- STYLE BELOW FOR SPACING -->
+        <p>Short project description</p>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12 text-center">
+        <div class="input-group mb-3">
+          <input type="text" id="searchInput" class="form-control" placeholder="What's the word or phrase?">
+          <button onclick="search()" class="btn btn-success" id="searchButton">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div id="randomGif">
+          <img id="gif" src="" alt="A random GIF based on the phrase What Do You Mean" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="results">
+          <div id="urbanDictionaryResults" class="results-container"></div>
+          <div id="dictionaryResults" class="results-container"></div>
+          <div id="googleResults" class="results-container"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div id="randomGif">
-    <img id="gif" src="" alt="A random GIF based on the phrase What Do You Mean" class="img-fluid">
-  </div>
-
-  <!-- <div id="urbanDictionaryResults" class="results-container"></div>
-  <div id="dictionaryResults" class="results-container"></div>
-  <div id="googleResults" class="results-container"></div> -->
-
-  <!-- <div id="loading">
-    <img src="spinner.gif" /> 
-  </div>
-  
-  <div id="error"></div> -->
-  
-  <div class="results">
-  
-    <div id="urbanDictionaryResults"></div>
-  
-    <div id="dictionaryResults"></div>
-  
-    <div id="googleResults"></div>
-
-</div>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="./Assets/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="./Assets/script.js"></script>
 </body>
+
 </html>

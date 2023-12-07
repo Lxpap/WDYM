@@ -1,0 +1,28 @@
+#randomGif {
+    display: flex;
+    justify-content: center;
+}
+
+.result-box {
+    border: 2px solid #868686;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+#logo {
+    height: 75px;
+}
+
+.urban-entry {
+    border: 2px solid #868686;
+}
+
+.dictionary-entry {
+    border: 4px solid #868686;
+}
+
+.google-entry {
+    border: 1px solid #868686;
+}
