@@ -2,7 +2,7 @@
 // Function that randomises GIF on main page before using search
 
 async function getRandomGif() {
-    var response = await fetch(`https://api.giphy.com/v1/gifs/search?q=wdym&api_key=OBXwlhFG7x9ODt6AZN21VX3uccqdMBxK`);
+    var response = await fetch(`https://api.giphy.com/v1/gifs/search?q=wdym&api_key=[GIPHYAPIKEY]`);
     var data = await response.json();
 
     var randomIndex = Math.floor(Math.random() * data.data.length);
@@ -55,7 +55,6 @@ function search() {
 
         $('#randomGif').hide();
         $('#dictionaryResults').show();
-        console.log(dictionaryResults);
         displayResultsDictionary('dictionaryResults', 'Dictionary', dictionaryResults);
 
     }).fail(function (error) {
@@ -64,7 +63,7 @@ function search() {
     });
 
     // $.when(
-        
+
     //     fetchGoogleResults(searchTerm)
     // ).done(function (googleResults) {
 
@@ -118,7 +117,6 @@ function displayResultsDictionary(containerId, title, results) {
     if (Array.isArray(results)) {
         var resultItems = results.map(result => {
             var content = result.definitions?.[0]?.definition || result.meanings?.[0]?.definitions?.[0]?.definition || result.word || result;
-            console.log(content);
             return `<li class="dictionary-entry">${content}</li>`;
         });
 
@@ -132,7 +130,7 @@ function displayResultsDictionary(containerId, title, results) {
 
 
     $(`#${containerId}`).empty().append(resultBox);
-    console.log(results);
+
 
 }
 
@@ -184,7 +182,7 @@ function fetchDictionaryResults(searchTerm) {
 }
 
 function fetchGoogleResults(searchTerm) {
-    var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&key=AIzaSyB0xT2iK7esmO8eJEuTBYiWXYw1CiInl8s&cx=8303b2277c99f409a`;
+    var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&key=[GOOGLEAPIKEY]&cx=[ENGINEID]`;
     return $.ajax({
         url: apiUrl,
         method: 'GET',
@@ -198,9 +196,9 @@ function fetchGoogleResults(searchTerm) {
 var searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('keydown', (event) => {
 
-  if (event.key === 'Enter') {
-    search();
+    if (event.key === 'Enter') {
+        search();
 
-  }
+    }
 
 });
