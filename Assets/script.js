@@ -203,6 +203,8 @@ searchInput.addEventListener('keydown', (event) => {
 
 });
 
+// Refresh the app by clicking on the logo
+
 document.getElementById("logo").onclick = function() {
     location.reload();
    }
