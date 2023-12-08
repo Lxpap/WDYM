@@ -3,26 +3,65 @@
     justify-content: center;
 }
 
-.result-box {
-    border: 2px solid #868686;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    color: rgba(255, 255, 255, 0.8);
-
-}
+/* #project-description {
+    display: block;
+    justify-content: center;
+} */
 
 #logo {
     height: 75px;
+    style="cursor: pointer;"
+    
+}
+
+.result-box {
+    border: 2px solid #868686;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+
+}
+
+#urbanDictionaryResults {
+    display: block;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .urban-entry {
-    border: 2px solid #868686;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #868686;
+    border-radius: 4px;
+}
+
+#dictionaryResults ul {
+    padding: 0px;
+    margin: 0px;
 }
 
 .dictionary-entry {
-    border: 4px solid #868686;
+    box-sizing: border-box;
+    list-style-type: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #868686;
+    border-radius: 4px;
+}
+
+#googleResults ul {
+    padding: 0px;
+    margin: 0px;
 }
 
 .google-entry {
+    box-sizing: border-box;
+    list-style-type: none;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #868686;
+    border-radius: 4px;
 }

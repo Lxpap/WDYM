@@ -14,34 +14,33 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-12 text-center">
-        <img src="./Assets/Images/logo.png" class=".img-fluid. max-width: 50%" id="logo">
-        <!-- STYLE BELOW FOR SPACING -->
-        <p>Short project description</p>
+        <img src="./Assets/Images/logo.png" class=".img-fluid. max-width: 50%" id="logo" style="cursor: pointer;">
+        
+        <p class="col-8 mt-3 mx-auto" id="project-description">Did your tween say they "finna rage fr"? Did your chronically online friend comment "no cap" on your latest Facebook post? Use the search below and find out what they might have meant.</p>
       </div>
     </div>
 
-    <!-- MAYBE MAKE THIS ONE A BIT SMALLER AS MAX WIDTH -->
-    <div class="row mt-5">
-      <div class="col-md-12 text-center">
+    <div class="row mt-3">
+      <div class="col-12 text-center">
         <div class="input-group mb-3">
           <input type="text" id="searchInput" class="form-control" placeholder="What's the word or phrase?">
           <button onclick="search()" class="btn btn-success" id="searchButton">Search</button>
         </div>
       </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-3">
       <div class="col-md-12">
         <div id="randomGif">
           <img id="gif" src="" alt="A random GIF based on the phrase What Do You Mean" class="img-fluid">
         </div>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col-md-12">
+    <div class="row mt-3">
+      <div class="results-wrapper col-md-12">
         <div class="results">
-          <div id="urbanDictionaryResults" class="results-container"></div>
-          <div id="dictionaryResults" class="results-container"></div>
-          <div id="googleResults" class="results-container"></div>
+          <div id="urbanDictionaryResults"></div>
+          <div id="dictionaryResults"></div>
+          <div id="googleResults"></div>
         </div>
       </div>
     </div>

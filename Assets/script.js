@@ -2,7 +2,7 @@
 // Function that randomises GIF on main page before using search
 
 async function getRandomGif() {
-    var response = await fetch(`https://api.giphy.com/v1/gifs/search?q=wdym&api_key=[GIPHYAPIKEY]`);
+    var response = await fetch(`https://api.giphy.com/v1/gifs/search?q=wdym&api_key=OBXwlhFG7x9ODt6AZN21VX3uccqdMBxK`);
     var data = await response.json();
 
     var randomIndex = Math.floor(Math.random() * data.data.length);
@@ -62,27 +62,27 @@ function search() {
         console.error('Error fetching Dictionary search results:', error);
     });
 
-    // $.when(
+    $.when(
 
-    //     fetchGoogleResults(searchTerm)
-    // ).done(function (googleResults) {
+        fetchGoogleResults(searchTerm)
+    ).done(function (googleResults) {
 
-    //     $('#randomGif').hide();
-    //     $('#googleResults').show();
-    //     displayResultsGoogle('googleResults', 'Google', googleResults.items);
+        $('#randomGif').hide();
+        $('#googleResults').show();
+        displayResultsGoogle('googleResults', 'Google', googleResults.items);
 
 
-    // }).fail(function (error) {
-    //  displayResultsGoogle('googleResults', 'Google', "Not even Google could find a result. There's no hope for you");
-    //     console.error('Error fetching Google search results:', error);
-    // });
+    }).fail(function (error) {
+     displayResultsGoogle('googleResults', 'Google', "Not even Google could find a result. There's no hope for you");
+        console.error('Error fetching Google search results:', error);
+    });
 }
 
 
 function displayResultsUrban(containerId, title, results) {
 
     var resultBox = $('<div>').addClass('result-box');
-    resultBox.append(`<h3>${title} Results</h3>`);
+    resultBox.append(`<h3>${title} Results (Slang)</h3>`);
 
     if (Array.isArray(results) && results.length > 0) {
         var resultItems = results.map(item => {
@@ -92,7 +92,7 @@ function displayResultsUrban(containerId, title, results) {
 
             return `
                 <div class="urban-entry">
-                    <h6>Definition: ${definition}</h6>
+                    <h6>Definition:</h6><p>${definition}</p>
                     <p><strong>Example Use:</strong> ${example}</p>
                     <a href="${permalink}" target="_blank">Read more</a>
                 </div>`;
@@ -112,7 +112,7 @@ function displayResultsUrban(containerId, title, results) {
 
 function displayResultsDictionary(containerId, title, results) {
     var resultBox = $('<div>').addClass('result-box');
-    resultBox.append(`<h3>${title} Results</h3>`);
+    resultBox.append(`<h3>${title} Definitions</h3>`);
 
     if (Array.isArray(results)) {
         var resultItems = results.map(result => {
@@ -182,7 +182,7 @@ function fetchDictionaryResults(searchTerm) {
 }
 
 function fetchGoogleResults(searchTerm) {
-    var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&key=[GOOGLEAPIKEY]&cx=[ENGINEID]`;
+    var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&key=AIzaSyB0xT2iK7esmO8eJEuTBYiWXYw1CiInl8s&cx=8303b2277c99f409a`;
     return $.ajax({
         url: apiUrl,
         method: 'GET',
@@ -202,3 +202,7 @@ searchInput.addEventListener('keydown', (event) => {
     }
 
 });
+
+document.getElementById("logo").onclick = function() {
+    location.reload();
+   }
