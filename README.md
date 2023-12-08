@@ -12,9 +12,9 @@
 - [License](#license)
 
 ## Screenshots
-![Main Page - Desktop](Assets/Images/screenshots/wdym1.png)
-![Results Page - Desktop](Assets/Images/screenshots/wdym2.png)
-![Main Page - Mobile](Assets/Images/screenshots/wdym1_mobile.png)
+![Main Page - Desktop](Assets/Images/screenshots/wdym1.PNG)
+![Results Page - Desktop](Assets/Images/screenshots/wdym2.PNG)
+![Main Page - Mobile](Assets/Images/screenshots/wdym1_mobile.PNG)
 ![Results Page - Mobile](Assets/Images/screenshots/wdym2_mobile.png)
 
  ### User Story
