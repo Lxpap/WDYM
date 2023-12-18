@@ -2,7 +2,7 @@
 // Function that randomises GIF on main page before using search
 
 async function getRandomGif() {
-    var response = await fetch(`https://api.giphy.com/v1/gifs/search?q=wdym&api_key=OBXwlhFG7x9ODt6AZN21VX3uccqdMBxK`);
+    var response = await fetch(`https://api.giphy.com/v1/gifs/search?q=wdym&api_key=[GIPHYAPI]`);
     var data = await response.json();
 
     var randomIndex = Math.floor(Math.random() * data.data.length);
@@ -182,7 +182,7 @@ function fetchDictionaryResults(searchTerm) {
 }
 
 function fetchGoogleResults(searchTerm) {
-    var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&key=AIzaSyB0xT2iK7esmO8eJEuTBYiWXYw1CiInl8s&cx=8303b2277c99f409a`;
+    var apiUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&key=[GOOGLEAPI]&cx=[ENGINEID]`;
     return $.ajax({
         url: apiUrl,
         method: 'GET',
